@@ -1,0 +1,5 @@
+object, x, y, width, height
+spike_1, 875, 645, 94, 70
+ledge_spike, 1100, 448, 60, 48
+top_spike, 625, 115, 45, 47
+spike_2, 1408, 560, 100, 86

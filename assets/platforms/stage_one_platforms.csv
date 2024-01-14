@@ -1,0 +1,11 @@
+object, x, y, width, height
+first_barrier, 631, 505, 100, 66
+excavator_bottom, 759, 377, 372, 190
+excavator_top, 990, 297, 138, 80
+excavator_claw, 1170, 204, 161, 49
+sign, 1573, 271, 217, 158
+stop, 1948, 228, 127, 139
+rails_bottom, 2185, 364, 359, 61
+rails_top, 2334, 250, 219, 62
+rails_pillar, 2544, 255, 117, 310
+second_barrier, 2985, 502, 97, 64

@@ -1,0 +1,6 @@
+object, x, y, width, height
+cone_one, 1524, 491, 79, 79
+sign_spike, 1654, 238, 55, 33
+rails_bump, 2490, 181, 111, 74
+cone_two, 2855, 489, 74, 77
+floor, 1745, 551, 753, 20

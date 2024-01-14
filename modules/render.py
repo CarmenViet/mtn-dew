@@ -1,6 +1,5 @@
 from modules.images import *
 
-
 def render_protag(screen, char_coordinates, ground_level):
     screen.blit(shoellieila_image, (300, ground_level - char_coordinates["y"]))
 

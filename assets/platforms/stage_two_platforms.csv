@@ -1,0 +1,10 @@
+object, x, y, width, height
+bump, 706, 585, 139, 65
+ledge, 973, 496, 180, 70
+baby_ledge, 1022, 370, 67, 37
+middle_ledge, 807, 278, 92, 22
+top_ledge, 625, 162, 153, 22
+top_pad, 930, 111, 119, 28
+step_2, 1147, 165, 60, 25
+step_3, 1286, 288, 47, 25
+step_4, 1391, 465, 40, 25
