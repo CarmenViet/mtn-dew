@@ -58,18 +58,13 @@ def show_level_two(screen, clock):
         render_stage(screen, char_physics["coordinates"], neighbor2_image)
         render_protag(screen, char_physics["coordinates"], ground_level=500)
         render_neighbor(screen, char_physics["coordinates"], susan_image, neighbor_base_coordinates=[1706, 500])
-        
-        handle_jumping(char_physics)
+        check_if_touching_obstacle(char_physics, level_two_obstacles, 8, 500)
 
-        for platform in level_two_platforms:
-            pygame.draw.rect(screen, white, (-char_physics["coordinates"]["x"] + platform["x"], platform["y"], platform["width"], platform["height"]))
-        
-        for obstacle in level_two_obstacles:
-            pygame.draw.rect(screen, black, (-char_physics["coordinates"]["x"] + obstacle["x"], obstacle["y"], obstacle["width"], obstacle["height"]))
+        can_jump = handle_jumping(char_physics, level_two_platforms, ground_level=500)
 
         if char_physics["coordinates"]["x"] <= 1273:
             handle_movement(char_physics["coordinates"])
-            handle_jump_press(char_physics)    
+            handle_jump_press(char_physics, can_jump)    
         else:
 
             #her first box

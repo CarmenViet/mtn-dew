@@ -15,6 +15,6 @@ clock = pygame.time.Clock()
 # Game Functions
 show_intro_screen(screen, clock)
 show_level_one(screen, clock)
-#show_level_two(screen, clock)
+show_level_two(screen, clock)
 show_level_three(screen, clock)
 pygame.quit()

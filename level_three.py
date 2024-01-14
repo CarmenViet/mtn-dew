@@ -63,7 +63,7 @@ def show_level_three_outdoors(screen, clock):
 
         render_stage(screen, char_physics["coordinates"], boss_house_image)
         render_protag(screen, char_physics["coordinates"], ground_level=400)
-        handle_jumping(char_physics)
+        can_jump = handle_jumping(char_physics, [], ground_level=400)
 
         if intro_box == "active":
             screen.blit(box, (0,0))
@@ -78,7 +78,7 @@ def show_level_three_outdoors(screen, clock):
         
         if char_physics["coordinates"]["x"] <= 900 and intro_box == "inactive":
             handle_movement(char_physics["coordinates"])
-            handle_jump_press(char_physics)
+            handle_jump_press(char_physics, can_jump)
         else:
             if char_physics["coordinates"]["x"] > 900:
                 screen.blit(box, (0, 0))
@@ -116,20 +116,15 @@ def show_level_three_indoors(screen, clock):
         render_stage(screen, char_physics["coordinates"], indoor_image)
         render_protag(screen, char_physics["coordinates"], ground_level=400)
         render_neighbor(screen, char_physics["coordinates"], richard_image, neighbor_base_coordinates=[1506, 400])
-        handle_jumping(char_physics)
-
-        for platform in level_three_platforms:
-            pygame.draw.rect(screen, white, (-char_physics["coordinates"]["x"] + platform["x"], platform["y"], platform["width"], platform["height"]))
-        
-        for obstacle in level_three_obstacles:
-            pygame.draw.rect(screen, black, (-char_physics["coordinates"]["x"] + obstacle["x"], obstacle["y"], obstacle["width"], obstacle["height"]))        
+        check_if_touching_obstacle(char_physics, level_three_obstacles, 8, 400)
+        can_jump = handle_jumping(char_physics, level_three_platforms, ground_level=400)
 
         inside_volume = 1.0
         pygame.mixer.music.set_volume(inside_volume)
 
         if char_physics["coordinates"]["x"] <= 1043:
             handle_movement(char_physics["coordinates"])
-            handle_jump_press(char_physics)
+            handle_jump_press(char_physics, can_jump)
 
         else:
             if first_box == True:

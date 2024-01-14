@@ -59,18 +59,13 @@ def show_level_one(screen, clock):
         render_stage(screen, char_physics["coordinates"], neighbor1_image)
         render_protag(screen, char_physics["coordinates"], ground_level=400)
         render_neighbor(screen, char_physics["coordinates"], jollibee_image, neighbor_base_coordinates=[3606, 400])
-        
-        handle_jumping(char_physics, level_one_platforms, ground_level=400)
 
-        for platform in level_one_platforms:
-            pygame.draw.rect(screen, white, (-char_physics["coordinates"]["x"] + platform["x"], platform["y"], platform["width"], platform["height"]))
-        
-        for obstacle in level_one_obstacles:
-            pygame.draw.rect(screen, black, (-char_physics["coordinates"]["x"] + obstacle["x"], obstacle["y"], obstacle["width"], obstacle["height"]))
+        check_if_touching_obstacle(char_physics, level_one_obstacles, 8, 400)
+        can_jump = handle_jumping(char_physics, level_one_platforms, ground_level=400)
 
         if char_physics["coordinates"]["x"] <= 3053:
             handle_movement(char_physics["coordinates"])
-            handle_jump_press(char_physics)    
+            handle_jump_press(char_physics, can_jump)    
 
         else:
             if first_box == True:
